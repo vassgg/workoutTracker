@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+.default-background{
+    background-color: rgb(0, 0, 0, 0.5);
+}
+html, body { height: 100%; }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    color: #E1F7F5;
+}
+
+.row {
+    display: flex;
+}
+
+.alignHorizontal {
+    align-items: center;
+}
+
+.main{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+}

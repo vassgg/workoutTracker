@@ -1,0 +1,53 @@
+<div class="main">
+    <div class="center">
+        <div class="save">
+            <button mat-raised-button color="primary">
+                Save routine
+            </button>
+        </div>
+        <div class="title">
+            <div>Routine title</div>
+            <mat-form-field>
+                <mat-label for="routineTitle">Workout Routine Title</mat-label>
+                <input matInput type="text" [formControl]="routineTitle">
+            </mat-form-field>
+        </div>
+        <div class="added-exercise">
+            <div class="first-row">
+                <div>
+                    <img src="../../../assets/00251201-Barbell-Bench-Press_Chest_thumbnail@3x.jpg" alt="">
+                    <div>exercise name</div>
+                </div>
+                <button mat-icon-button>
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+            <div class="note">
+                <div>Note</div>
+                <mat-form-field>
+                    <mat-label for="note">Add note</mat-label>
+                    <textarea matInput type="text" [formControl]="note"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="workset">
+                <mat-form-field>
+                    <mat-select [(value)]="selectedOption">
+                        <mat-option *ngFor="let item of arrayOfTen" [value]="item" >{{item}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    <div class="exercises">
+        <div class="list-item">
+            <button mat-icon-button>
+                <mat-icon>add</mat-icon>
+            </button>
+            <img src="../../../assets/00251201-Barbell-Bench-Press_Chest_thumbnail@3x.jpg" alt="">
+            <div class="exer-name">
+                <div>exercise name</div>
+                <div>bodypart</div>
+            </div>
+        </div>
+    </div>
+</div>

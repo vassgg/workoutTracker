@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "workout-tracker-dd5ba": {
+      "hosting": {
+        "workout-tracker": [
+          "workout-tracker-dd5ba"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "workout-tracker-dd5ba"
+  }
+}

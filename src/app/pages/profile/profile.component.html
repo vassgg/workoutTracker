@@ -1,0 +1,73 @@
+<div class="main">
+    <div class="profile-card">
+        <div class="profile">
+            <img *ngIf="!editing" class="profile-pic" [src]="loadedImage">
+
+            <div *ngIf="!editing">{{userObject?.username}}</div>
+
+            <div *ngIf="editing">
+                <input *ngIf="!imageAdded" type="file" (change)="onFileChange($event)">
+                <img *ngIf="imageAdded" class="profile-pic" [src]="loadedImage">
+                <button *ngIf="!imageAdded" mat-icon-button (click)="addImage()">
+                    <mat-icon>add</mat-icon>
+                </button>
+                <button *ngIf="!imageAdded" mat-icon-button>
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+
+            <button *ngIf="!editing" mat-icon-button (click)="onEditProfile()">
+                <mat-icon>edit</mat-icon>
+            </button>
+
+            <div class="name-edit">
+                <mat-form-field *ngIf="editing">
+                    <mat-label for="changedUsername"></mat-label>
+                    <input matInput type="text" [formControl]="changedUsername">
+                </mat-form-field>
+
+                <button *ngIf="editing" mat-icon-button (click)="saveChanges()">
+                    <mat-icon>done</mat-icon>
+                </button>
+                <button *ngIf="editing" mat-icon-button (click)="cancelEdit()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <div class="workout-card">
+        <div class="user">
+            <mat-icon>person</mat-icon>
+            <span>
+                <div>Felhasznalonev</div>
+                <div>date</div>
+            </span>
+        </div>
+        <div class="w-name">WorkoutName</div>
+        <div>
+            <div class="exercise"><img class="exer-thumb"
+                    src="../../../assets/00251201-Barbell-Bench-Press_Chest_thumbnail@3x.jpg" alt="">
+                <span>ExerciseName</span>
+            </div>
+        </div>
+        <div>
+            <div class="exercise"><img class="exer-thumb"
+                    src="../../../assets/00251201-Barbell-Bench-Press_Chest_thumbnail@3x.jpg" alt="">
+                <span>ExerciseName</span>
+            </div>
+        </div>
+        <div>
+            <div class="exercise"><img class="exer-thumb"
+                    src="../../../assets/00251201-Barbell-Bench-Press_Chest_thumbnail@3x.jpg" alt="">
+                <span>ExerciseName</span>
+            </div>
+        </div>
+        <div>
+            <div class="exercise"><img class="exer-thumb"
+                    src="../../../assets/00251201-Barbell-Bench-Press_Chest_thumbnail@3x.jpg" alt="">
+                <span>ExerciseName</span>
+            </div>
+        </div>
+    </div>
+</div>

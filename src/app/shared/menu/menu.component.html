@@ -1,0 +1,24 @@
+<div class="menu default-background">
+    <div class="menu-items">
+        <a class="item" mat-fab extended color="primary" routerLink="home">
+            <mat-icon>home</mat-icon>
+            Home
+        </a>
+        <a class="item" mat-fab extended color="primary" routerLink="/routines">
+            <mat-icon>assignment</mat-icon>
+            Routines
+        </a>
+        <a class="item" mat-fab extended color="primary" routerLink="/friends">
+            <mat-icon>people</mat-icon>
+            Friends
+        </a>
+        <a class="item" mat-fab extended color="primary" routerLink="/profile">
+            <mat-icon>person</mat-icon>
+            Profile
+        </a>
+    </div>
+        <button class="item" mat-fab extended (click)="onLogoutClick()" routerLink="/login">
+            <mat-icon>logout</mat-icon>
+            Logout
+        </button>
+</div>

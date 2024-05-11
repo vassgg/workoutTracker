@@ -1,0 +1,32 @@
+<mat-nav-list>
+    <a mat-list-item routerLink="home" (click)="close()">
+        <div>
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </div>
+    </a>
+    <a mat-list-item routerLink="/routines" (click)="close()">
+        <div>
+            <mat-icon>assignment</mat-icon>
+            <span>Routines</span>
+        </div>
+    </a>
+    <a mat-list-item routerLink="/friends" (click)="close()">
+        <div>
+            <mat-icon>people</mat-icon>
+            <span>Friends</span>
+        </div>
+    </a>
+    <a mat-list-item routerLink="/profile" (click)="close()">
+        <div>
+            <mat-icon>person</mat-icon>
+            <span>Profile</span>
+        </div>
+    </a>
+    <button class="logout" mat-list-item routerLink="/login" (click)="onLogoutClick()" (click)="close()">
+        <div>
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+        </div>
+    </button>
+</mat-nav-list>

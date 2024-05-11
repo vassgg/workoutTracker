@@ -1,0 +1,31 @@
+.card{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 40vw;
+    border-radius: 10px;
+    margin-top: 10vh;
+}
+
+.user{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+.w-name{
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem;
+}
+
+.exercise{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+.exer-thumb{
+    width: 50px;
+    border-radius: 100%;
+}
