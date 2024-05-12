@@ -1,0 +1,24 @@
+<form [formGroup]="setForm" class="row w-full justify-between items-center">
+  <span>{{ index }}</span>
+  <mat-form-field>
+    <input
+      type="text"
+      [value]="reps"
+      matInput
+      formControlName="reps"
+      placeholder="reps"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      type="text"
+      matInput
+      [value]="weight"
+      formControlName="weight"
+      placeholder="weight (kg)"
+    />
+  </mat-form-field>
+  <button (click)="removeSet(index)" mat-icon-button>
+    <mat-icon>delete</mat-icon>
+  </button>
+</form>

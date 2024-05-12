@@ -7,14 +7,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select'
+import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
-
+import { WorkoutExerciseCardComponent } from '../../cards/workout-exercise-card/workout-exercise-card.component';
 
 @NgModule({
-  declarations: [
-    AddRoutineComponent
-  ],
+  declarations: [AddRoutineComponent],
   imports: [
     CommonModule,
     AddRoutineRoutingModule,
@@ -23,7 +21,8 @@ import { MatOptionModule } from '@angular/material/core';
     ReactiveFormsModule,
     MatInputModule,
     MatSelectModule,
-    MatOptionModule
-  ]
+    MatOptionModule,
+    WorkoutExerciseCardComponent,
+  ],
 })
-export class AddRoutineModule { }
+export class AddRoutineModule {}

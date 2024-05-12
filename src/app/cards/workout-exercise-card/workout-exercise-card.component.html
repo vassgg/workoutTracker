@@ -1,0 +1,43 @@
+<form [formGroup]="workoutForm" class="added-exercise">
+  <div class="row justify-between">
+    <div class="row items-center gap-1">
+      <img
+        src="../../../assets/00251201-Barbell-Bench-Press_Chest_thumbnail@3x.jpg"
+        alt=""
+      />
+      <span class="font-semibold text-l">{{ name }}</span>
+    </div>
+    <button
+      (click)="
+        removeExercise({ name: name, primaryMuscleGroup: primaryMuscleGroup })
+      "
+      mat-icon-button
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+
+  <mat-form-field>
+    <mat-label for="note">Add note</mat-label>
+    <textarea matInput type="text" formControlName="note"></textarea>
+  </mat-form-field>
+
+  <app-set-card
+    *ngFor="let set of sets; let i = index"
+    [weight]="set.weight"
+    [index]="i + 1"
+    [reps]="set.reps"
+    [submitted]="submitted"
+    (setRemoveRequest)="removeSet($event)"
+    (set)="pushSet($event)"
+  ></app-set-card>
+
+  <button
+    (click)="addSetToExercise()"
+    mat-raised-button
+    class="w-full"
+    color="accent"
+  >
+    Add set
+  </button>
+</form>
