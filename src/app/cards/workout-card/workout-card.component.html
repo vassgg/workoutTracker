@@ -1,0 +1,30 @@
+<div class="card default-background text-grey box-shadow">
+    <div class="row w-full items-center gap-1">
+        <img [src]="loadedImage" class="profile-pic-s">
+        <span class="text-m medium">{{userName}}</span>
+        <button *ngIf="workout?.creatorId === currentUser.uid" mat-icon-button (click)="delete()">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+    <div class="workout-name row justify-between ">
+        <span class="text-accent text-l medium">{{workout?.workoutName}}</span>
+        <span>{{workout?.insertDate?.toDate()?.toLocaleString("hu-HU")}}</span>
+    </div>
+
+    <div class="col gap-1  p-1 rounded-sm" *ngFor="let exercise of workout?.exercises">
+        <span class="text-accent text-m   text-l">{{exercise.name}}</span>
+        <span class=" text-m">{{exercise.primaryMuscleGroup}}</span>
+
+        <span class=" pb-1 text-m">Number of sets {{exercise.sets?.length}}</span>
+        <div class="row justify-between ">
+            <span class="text-center text-accent bold w-3">Set</span>
+            <span class="text-center text-accent bold w-3">Reps</span>
+            <span class="text-center text-accent bold w-3">Weight</span>
+        </div>
+            <div class="row justify-between box-shadow items-center p-1  rounded-sm " *ngFor="let set of exercise.sets; let i=index">
+                <span class="text-center w-3">{{i + 1}}</span>
+                <span class="text-center w-3">{{set.reps}}</span>
+                <span class="text-center w-3"> {{set.weight | metric}}</span>
+            </div>
+    </div>
+</div>

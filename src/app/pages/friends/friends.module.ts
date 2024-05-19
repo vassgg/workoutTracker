@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { FriendsRoutingModule } from './friends-routing.module';
 import { FriendsComponent } from './friends.component';
-import { MatIconButton } from '@angular/material/button';
+import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { FollowCardComponent } from '../../cards/follow-card/follow-card.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,10 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     FriendsRoutingModule,
     MatIconButton,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule,
+    FollowCardComponent,
+    ReactiveFormsModule
   ]
 })
 export class FriendsModule { }

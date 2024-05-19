@@ -2,6 +2,9 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { UserService } from '../../shared/services/user.service';
 import { FormControl } from '@angular/forms';
 import { User } from '../../shared/models/User';
+import { getAuth } from '@angular/fire/auth';
+import { WorkoutService } from '../../shared/services/workout.service';
+import { Workout } from '../../shared/models/Workout';
 
 @Component({
   selector: 'app-profile',
@@ -19,7 +22,9 @@ export class ProfileComponent implements OnInit{
   toDeletePicture?: string;
   imageAdded: boolean = false;
 
-  constructor(private userService: UserService){}
+  workouts?: Workout[];
+
+  constructor(private userService: UserService, private workoutService: WorkoutService){}
 
   ngOnInit(): void {
     this.userService.getUser(this.user.uid).subscribe(user =>{
@@ -36,6 +41,13 @@ export class ProfileComponent implements OnInit{
       console.error(error);
     })
     
+    this.getWorkouts();
+  }
+
+  getWorkouts(){
+    this.workoutService.getWorkoutByUser(this.user.uid).subscribe(datas =>{
+      this.workouts = datas;
+    });
   }
 
   onEditProfile(){
@@ -52,7 +64,8 @@ export class ProfileComponent implements OnInit{
       id: this.userObject?.id as string,
       email: this.userObject?.email as string,
       username: this.changedUsername.value as string,
-      profilePictureUrl: this.userObject?.profilePictureUrl as string
+      profilePictureUrl: this.userObject?.profilePictureUrl as string,
+      follows: this.userObject?.follows as string[]
     };
     this.userService.update(this.userObject);
     this.editing = false;
@@ -74,7 +87,8 @@ export class ProfileComponent implements OnInit{
         id: this.userObject?.id as string,
         email: this.userObject?.email as string,
         username: this.changedUsername.value as string,
-        profilePictureUrl: this.profilePicturePath as string
+        profilePictureUrl: this.profilePicturePath as string,
+        follows: this.userObject?.follows as string[]
       };
       this.userService.update(this.userObject);
     }

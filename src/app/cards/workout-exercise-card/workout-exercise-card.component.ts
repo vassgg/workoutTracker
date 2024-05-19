@@ -46,6 +46,8 @@ export class WorkoutExerciseCardComponent implements OnChanges {
   submittedSets: Array<Set> = [];
   @Output() submittedExercise = new EventEmitter<Exercise>();
 
+  loadedImage?: string;
+
   workoutForm = this.formBuilder.group({
     note: [''],
   });
@@ -87,6 +89,8 @@ export class WorkoutExerciseCardComponent implements OnChanges {
       if (note == null) {
         note = undefined;
       }
+      
+      
       this.pushExercise(
         this.name,
         this.submittedSets,

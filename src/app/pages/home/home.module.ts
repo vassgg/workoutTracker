@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { MatIconModule } from '@angular/material/icon';
-
+import { WorkoutCardComponent } from '../../cards/workout-card/workout-card.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    MatIconModule
+    WorkoutCardComponent
   ]
 })
 export class HomeModule { }

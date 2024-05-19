@@ -38,7 +38,8 @@ export class SignupComponent {
           id: cred.user?.uid as string,
           email: this.signUpForm.get('email')?.value as string,
           username: this.signUpForm.get('username')?.value as string,
-          profilePictureUrl: 'profilepictures/blank-profile-picture-973460_960_720.webp'
+          profilePictureUrl: 'profilepictures/blank-profile-picture-973460_960_720.webp',
+          follows: []
         }
         this.userService.create(user).then(_ => {
           console.log('User added successfully');

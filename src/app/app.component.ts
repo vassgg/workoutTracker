@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { AuthService } from './shared/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,28 +13,23 @@ export class AppComponent implements OnInit {
 
   loggedInUser?: firebase.default.User | null;
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService, private router: Router){}
 
   onToggleSidenav(sidenav: MatSidenav){
     sidenav.toggle();
   }
 
   ngOnInit(): void {
-    this.authService.isAuthenticated().subscribe({
-      next: (user: any) => {
-        console.log(user);
-        this.loggedInUser = user;
-        localStorage.setItem('user', JSON.stringify(this.loggedInUser));
-      }, error: (error: any) => {
-        console.error(error)
-        localStorage.setItem('user', JSON.stringify('null'));
-      }
+    this.authService.isAuthenticated().subscribe(usr => {
+      this.loggedInUser = usr;
     })
   }
 
   logout(){
     this.authService.logout().then(() => {
       console.log('Logged out successfully');
+      localStorage.setItem('user', 'null');
+      this.router.navigateByUrl('/login');
     }).catch(error => {
       console.error(error);
     });

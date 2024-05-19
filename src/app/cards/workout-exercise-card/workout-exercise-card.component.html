@@ -1,16 +1,10 @@
-<form [formGroup]="workoutForm" class="added-exercise">
+<form [formGroup]="workoutForm" class="added-exercise box-shadow text-grey">
   <div class="row justify-between">
     <div class="row items-center gap-1">
-      <img
-        src="../../../assets/00251201-Barbell-Bench-Press_Chest_thumbnail@3x.jpg"
-        alt=""
-      />
-      <span class="font-semibold text-l">{{ name }}</span>
+      <span class="font-semibold text-l text-accent bold">{{ name }}</span>
     </div>
     <button
-      (click)="
-        removeExercise({ name: name, primaryMuscleGroup: primaryMuscleGroup })
-      "
+      (click)="removeExercise({ name: name, primaryMuscleGroup: primaryMuscleGroup })"
       mat-icon-button
     >
       <mat-icon>delete</mat-icon>
@@ -35,8 +29,9 @@
   <button
     (click)="addSetToExercise()"
     mat-raised-button
-    class="w-full"
+    class="w-full "
     color="accent"
+
   >
     Add set
   </button>

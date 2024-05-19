@@ -2,7 +2,8 @@
 @use "@angular/material" as mat;
 
 .default-background {
-  background-color: rgb(0, 0, 0, 0.5);
+  // background-color: rgb(0, 0, 0, 0.5);
+  background-color: white;
 }
 html,
 body {
@@ -14,8 +15,60 @@ body {
   color: #e1f7f5;
 }
 
+.box-shadow{
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.rounded-sm{
+  border-radius: 10px;
+}
+
+.bg-primary{
+  background-color: #7b1fa2;
+}
+.bg-accent{
+  background-color: #69f0ae;
+}
+
+
+.bg-secondary{
+  background-color: white;
+}
+
+.mt-5{
+  margin-top: 5rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.pb-1{
+  padding-bottom: 1rem;
+}
+
+.p-1{
+  padding: 1rem;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.medium{
+  font-weight:500;
+}
+
 .text-primary {
   color: #7b1fa2;
+}
+
+.text-grey {
+  color: #B4B4B8;
+}
+
+.text-black {
+  color: black;
 }
 
 .text-accent {
@@ -27,7 +80,11 @@ body {
 }
 
 .text-l {
-  font-size: large;
+  font-size: 24px;
+}
+
+.text-m {
+  font-size: 18px;
 }
 
 .row {
@@ -37,6 +94,26 @@ body {
 .col {
   display: flex;
   flex-direction: column;
+}
+
+.fixed{
+  position: fixed;
+}
+
+.top-0{
+  top: 0;
+}
+
+.mat-mdc-raised-button:disabled{
+  background-color: #7b1fa2;
+}
+
+.z-99{
+  z-index: 99;
+}
+
+.z-1{
+  z-index: 1;
 }
 
 .alignHorizontal {
@@ -77,4 +154,28 @@ body {
 
 .gap-2 {
   gap: 2rem;
+}
+
+.profile-pic-s {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 300px;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.mat-mdc-raised-button .mat-mdc-button-touch-target{
+  background-color: #7b1fa2;
+  border-radius: 5px;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #B4B4B8 !important;
+}
+
+.w-3{
+  width: 2rem;
 }

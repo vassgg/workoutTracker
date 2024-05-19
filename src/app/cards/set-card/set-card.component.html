@@ -1,8 +1,8 @@
-<form [formGroup]="setForm" class="row w-full justify-between items-center">
+<form [formGroup]="setForm" class="row w-full justify-between items-center ">
   <span>{{ index }}</span>
   <mat-form-field>
     <input
-      type="text"
+      type="number"
       [value]="reps"
       matInput
       formControlName="reps"
@@ -11,7 +11,7 @@
   </mat-form-field>
   <mat-form-field>
     <input
-      type="text"
+      type="number"
       matInput
       [value]="weight"
       formControlName="weight"

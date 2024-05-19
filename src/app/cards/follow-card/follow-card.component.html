@@ -1,0 +1,10 @@
+<div *ngIf="!!user && user.id != currentUser?.uid" class="friend box-shadow text-black">
+    <img [src]="loadedImage">
+    <span>{{user.username}}</span>
+    <button mat-raised-button color="primary" *ngIf="followBtn" (click)="follow(user.id)">
+        Follow
+    </button>
+    <button mat-raised-button color="primary" *ngIf="!followBtn" (click)="unfollow(user.id)">
+        Unfollow
+    </button>
+</div>

@@ -1,5 +1,5 @@
 <div class="main">
-    <div class="login default-background">
+    <div class="login box-shadow text-black">
         <form [formGroup]="loginForm" (ngSubmit)="login()">
             <span class="title">Login</span>
             <div>
@@ -17,5 +17,8 @@
                 </div>
             </div>
         </form>
+        <div class="text-center mt-2" *ngIf="errorText">
+            Wrong email or password
+        </div>
     </div>
 </div>

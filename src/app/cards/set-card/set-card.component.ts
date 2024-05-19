@@ -56,11 +56,9 @@ export class SetCardComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['submitted'].currentValue === true) {
       const { weight, reps } = this.setForm.value;
-      if (typeof weight == 'number' && typeof reps == 'number') {
-        this.pushSet(weight, reps);
-      } else {
-        console.log('wrong input');
-      }
+        if (weight && reps){
+          this.pushSet(weight, reps);
+        }
     }
   }
 }

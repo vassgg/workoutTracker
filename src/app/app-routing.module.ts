@@ -11,9 +11,9 @@ const routes: Routes = [
   },
 
   {
-    path: 'routines',
+    path: 'add-workout',
     loadChildren: () =>
-      import('./pages/routines/routines.module').then((m) => m.RoutinesModule),
+      import('./pages/add-routine/add-routine.module').then((m) => m.AddRoutineModule),
     canActivate: [authGuard],
   },
 
@@ -32,11 +32,13 @@ const routes: Routes = [
     path: 'friends',
     loadChildren: () =>
       import('./pages/friends/friends.module').then((m) => m.FriendsModule),
+    canActivate: [authGuard]
   },
   {
     path: 'profile',
     loadChildren: () =>
       import('./pages/profile/profile.module').then((m) => m.ProfileModule),
+    canActivate: [authGuard]
   },
   {
     path: 'add-routine',
@@ -44,11 +46,13 @@ const routes: Routes = [
       import('./pages/add-routine/add-routine.module').then(
         (m) => m.AddRoutineModule
       ),
+      canActivate: [authGuard]
   },
 
   {
     path: '**',
     redirectTo: '/home',
+    
   },
 ];
 

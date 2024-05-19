@@ -1,8 +1,8 @@
 .exercises {
-  margin: 2.5vh 3%;
-  height: 90vh;
-  width: 18%;
-  background-color: black;
+  margin: 5rem 3%;
+  height: 80vh;
+  
+
   border-radius: 10px;
   align-self: flex-end;
   display: flex;
@@ -64,4 +64,18 @@ img {
   width: 100%;
   margin: auto 2%;
   align-self: center;
+}
+
+
+@media (max-width: 768px) {
+  span{
+    font-size: 12px;
+  }
+  .center{
+    margin-right:  15rem;
+
+  }
+  .exercises{
+    width: 12rem;
+  }
 }

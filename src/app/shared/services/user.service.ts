@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { User } from '../models/User';
+import { arrayRemove, arrayUnion, updateDoc } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class UserService {
   constructor(
     private afs: AngularFirestore,
     private storage: AngularFireStorage
-  ) {}
+  ) { }
 
   create(user: User) {
     return this.afs
@@ -26,6 +27,10 @@ export class UserService {
       .collection<User>(this.collectionName)
       .doc(uid)
       .valueChanges();
+  }
+
+  getAllUser() {
+    return this.afs.collection<User>(this.collectionName, ref => ref.limit(5)).valueChanges();
   }
 
   loadProfilePicture(imageUrl: string) {
@@ -47,5 +52,15 @@ export class UserService {
       .set(user);
   }
 
-  delete() {}
+  follow(uid: string, userToFollowId: string) {
+    return this.afs.collection<User>(this.collectionName).doc(uid).update({
+      follows: arrayUnion(userToFollowId)
+    });
+  }
+
+  unfollow(uid: string, userToUnfollow: string){
+    return this.afs.collection<User>(this.collectionName).doc(uid).update({
+      follows: arrayRemove(userToUnfollow)
+    });
+  }
 }

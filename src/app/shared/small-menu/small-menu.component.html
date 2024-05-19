@@ -1,14 +1,14 @@
-<mat-nav-list>
+<mat-nav-list >
     <a mat-list-item routerLink="home" (click)="close()">
         <div>
             <mat-icon>home</mat-icon>
             <span>Home</span>
         </div>
     </a>
-    <a mat-list-item routerLink="/routines" (click)="close()">
+    <a mat-list-item routerLink="/add-workout" (click)="close()">
         <div>
             <mat-icon>assignment</mat-icon>
-            <span>Routines</span>
+            <span>Add Workout</span>
         </div>
     </a>
     <a mat-list-item routerLink="/friends" (click)="close()">
@@ -23,7 +23,7 @@
             <span>Profile</span>
         </div>
     </a>
-    <button class="logout" mat-list-item routerLink="/login" (click)="onLogoutClick()" (click)="close()">
+    <button class="logout" mat-list-item (click)="onLogoutClick()" (click)="close()">
         <div>
             <mat-icon>logout</mat-icon>
             <span>Logout</span>

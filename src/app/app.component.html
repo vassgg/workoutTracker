@@ -3,8 +3,8 @@
         <app-small-menu (onLogout)="logout()" *ngIf="loggedInUser" (onClose)="close($event, sidenav)"></app-small-menu>
     </mat-sidenav>
 
-    <mat-sidenav-content>
-        <mat-toolbar color="primary" fxHide.gt-md  *ngIf="loggedInUser">
+    <mat-sidenav-content class="bg-secondary">
+        <mat-toolbar color="primary" class="fixed top-0 z-99"  fxHide.gt-md  *ngIf="loggedInUser">
             <button mat-icon-button (click)="onToggleSidenav(sidenav)">
                 <mat-icon>menu</mat-icon>
             </button>

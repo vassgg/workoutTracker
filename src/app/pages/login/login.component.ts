@@ -8,19 +8,14 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   loginForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
   });
-  currentUser = localStorage.getItem('user');
-  constructor(private authService: AuthService, private router: Router) {}
+  errorText: boolean = false;
 
-  ngOnInit(): void {
-    if (this.currentUser) {
-      this.router.navigate(['/']);
-    }
-  }
+  constructor(private authService: AuthService, private router: Router) {}
 
   login() {
     this.authService
@@ -30,11 +25,11 @@ export class LoginComponent implements OnInit {
       )
       .then((cred) => {
         console.log(cred);
-
+        localStorage.setItem('user', JSON.stringify(cred.user));
         this.router.navigateByUrl('/home');
       })
       .catch((error) => {
-        console.error(error);
+        this.errorText = true;
       });
   }
 }

@@ -11,10 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AddRoutineComponent implements OnInit {
   constructor(private workoutService: WorkoutService, private router: Router) {}
-  routineTitle = new FormControl('');
-  note = new FormControl('');
-  reps = new FormControl('');
-  weight = new FormControl('');
+  workoutName = new FormControl('');
   selectedOption: number = 1;
   exercises: Array<Exercise> = [];
   addedExercises: Array<Exercise> = [];
@@ -22,11 +19,11 @@ export class AddRoutineComponent implements OnInit {
   submittedExercises: Array<Exercise> = [];
   currentUser = JSON.parse(localStorage.getItem('user') as string);
   response = '';
+  
 
   fetchExercises() {
     this.workoutService
       .getExercises()
-      .valueChanges()
       .subscribe((data) => {
         data.map((exercise: Exercise) => {
           if (!this.addedExercises.includes(exercise)) {
@@ -53,12 +50,15 @@ export class AddRoutineComponent implements OnInit {
   submitWorkout() {
     this.submitted = true;
     setTimeout(() => {
+      console.log('submitted: ' + this.submittedExercises.length);
       if (this.submittedExercises.length > 0) {
         this.workoutService.insertWorkout(
+          this.workoutName.value ? this.workoutName.value : 'workout',
           this.currentUser.uid,
           this.submittedExercises
-        );
-        this.router.navigate(['/']);
+        ).then(_ => {
+          this.router.navigateByUrl('/home');
+        });
       } else {
         this.response = "Can't save workout!";
       }
@@ -66,12 +66,16 @@ export class AddRoutineComponent implements OnInit {
   }
 
   pushSubmittedExercise(exercise: Exercise) {
-    if (exercise.sets && exercise.sets.length > 0) {
       this.submittedExercises.push(exercise);
-    }
   }
 
   ngOnInit(): void {
     this.fetchExercises();
+  }
+
+  loadImage(imgUrl: string){
+    return this.workoutService.loadImg(imgUrl).subscribe(img => {
+      return img;
+    })
   }
 }

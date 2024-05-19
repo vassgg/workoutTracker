@@ -1,12 +1,12 @@
-<div class="menu default-background">
+<div class="menu default-background box-shadow">
     <div class="menu-items">
         <a class="item" mat-fab extended color="primary" routerLink="home">
             <mat-icon>home</mat-icon>
             Home
         </a>
-        <a class="item" mat-fab extended color="primary" routerLink="/routines">
+        <a class="item" mat-fab extended color="primary" routerLink="/add-workout">
             <mat-icon>assignment</mat-icon>
-            Routines
+            Add Workout
         </a>
         <a class="item" mat-fab extended color="primary" routerLink="/friends">
             <mat-icon>people</mat-icon>
@@ -17,7 +17,7 @@
             Profile
         </a>
     </div>
-        <button class="item" mat-fab extended (click)="onLogoutClick()" routerLink="/login">
+        <button class="item" mat-fab extended (click)="onLogoutClick()">
             <mat-icon>logout</mat-icon>
             Logout
         </button>

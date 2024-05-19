@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { getAuth } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Injectable({
@@ -21,5 +22,9 @@ export class AuthService {
 
   isAuthenticated() {
     return this.auth.user;
+  }
+
+  currentUser(){
+    return JSON.parse(localStorage.getItem('user') as string);
   }
 }
