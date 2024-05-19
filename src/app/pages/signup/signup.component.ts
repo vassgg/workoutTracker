@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors,
 import { AuthService } from '../../shared/services/auth.service';
 import { User } from '../../shared/models/User';
 import { UserService } from '../../shared/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -11,7 +12,7 @@ import { UserService } from '../../shared/services/user.service';
 })
 export class SignupComponent {
 
-  constructor(private authService: AuthService, private fp: FormBuilder, private userService: UserService) { }
+  constructor(private authService: AuthService, private fp: FormBuilder, private userService: UserService, private router: Router) { }
 
   confirmPasswordValidator: ValidatorFn = (
     control: AbstractControl
@@ -41,11 +42,13 @@ export class SignupComponent {
           profilePictureUrl: 'profilepictures/blank-profile-picture-973460_960_720.webp',
           follows: []
         }
-        this.userService.create(user).then(_ => {
+        this.userService.create(user).then(cred => {
           console.log('User added successfully');
         }).catch(error =>{
           console.error(error);
         })
+        localStorage.setItem('user', JSON.stringify(cred.user));
+          this.router.navigateByUrl('/home');
       }).catch(error => {
         console.error(error);
       })
